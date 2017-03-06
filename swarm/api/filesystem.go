@@ -55,6 +55,9 @@ func (self *FileSystem) Upload(lpath, index string) (string, error) {
 		return "", err
 	}
 	stat, err := f.Stat()
+	
+	// BUG: this f is not closed after this point-- it is basically queried for stat info.
+	
 	if err != nil {
 		return "", err
 	}
