@@ -32,6 +32,9 @@ func printLine(filename string, line int) (string, error) {
 	if err != nil {
 		return "", err
 	}
+	
+	// BUG: no file close
+	
 	fnode, err := parser.ParseFile(fset, filename, file, parser.ParseComments)
 	if err != nil {
 		return "", err
